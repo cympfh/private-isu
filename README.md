@@ -133,6 +133,9 @@ bunzip2 dump.sql.bz2
 
 cd ..
 docker compose up
+
+# 最初の一回だけ
+docker exec -i webapp-mysql-1 mysql -uroot -proot < sql/dump.sql
 ```
 
 デフォルトはRubyのため、他言語にする場合は`docker-compose.yml`ファイル内のappのbuildを変更する必要がある。PHPはそれに加えて以下の作業が必要。
