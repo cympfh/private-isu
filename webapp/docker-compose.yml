@@ -3,8 +3,10 @@ services:
   nginx:
     image: nginx:1.22
     volumes:
+      - ./etc/nginx/conf:/etc/nginx/nginx.conf
       - ./etc/nginx/conf.d:/etc/nginx/conf.d
       - ./public:/public
+      - /tmp/nginx/log:/var/log/nginx
     ports:
       - "80:80"
     links:
@@ -14,7 +16,7 @@ services:
     cpus: 1
     mem_limit: 1g
     # Go実装の場合は golang/ PHP実装の場合は php/
-    build: ruby/
+    build: golang/
     environment:
       ISUCONP_DB_HOST: mysql
       ISUCONP_DB_PORT: 3306
