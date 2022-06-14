@@ -5,7 +5,7 @@ bin/benchmarker: *.go checker/*.go
 	go build -o bin/benchmarker
 
 ping:
-	curl localhost:80
+	curl -I localhost:80
 
 mysqldumpslow:
 	mysqldumpslow /tmp/mysql/slow.log -s t -t 5
