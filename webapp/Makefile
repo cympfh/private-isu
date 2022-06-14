@@ -3,9 +3,17 @@ alp:
 
 up:
 	: > /tmp/mysql/slow.log
+	: > /tmp/nginx/log/access.log
 	docker compose up --build -d
 
+restart:
+	make down
+	make up
+
 down:
+	docker compose down
+
+down-rm:
 	docker compose down -v --rmi local
 
 logs:

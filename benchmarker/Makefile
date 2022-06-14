@@ -11,4 +11,4 @@ mysqldumpslow:
 	mysqldumpslow /tmp/mysql/slow.log -s t -t 5
 
 alp:
-	tail -n 300 /tmp/nginx/log/access.log | alp ltsv -m '/image/.*,/js/.*,/posts/.*' -o count,1xx,2xx,3xx,4xx,5xx,method,uri,min,avg,max,sum --sort sum -r --format markdown
+	cat /tmp/nginx/log/access.log | alp ltsv -m '/image/.*jpg,/image/.*png,/image/.*gif,/js/.*,/posts/.*,/@.*' -o count,1xx,2xx,3xx,4xx,5xx,method,uri,min,avg,max,sum --sort sum -r --format markdown
