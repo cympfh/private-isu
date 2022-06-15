@@ -3,8 +3,7 @@ services:
   nginx:
     image: nginx:1.22
     volumes:
-      - ./etc/nginx/conf:/etc/nginx/nginx.conf
-      - ./etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./public:/public
       - /tmp/nginx/log:/var/log/nginx
     ports:
